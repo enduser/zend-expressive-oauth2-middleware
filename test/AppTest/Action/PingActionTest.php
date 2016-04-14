@@ -6,8 +6,15 @@ use App\Action\PingAction;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
 
+/**
+ * Class PingActionTest
+ * @package AppTest\Action
+ */
 class PingActionTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Just respond to a Ping
+     */
     public function testResponse()
     {
         $pingAction = new PingAction();

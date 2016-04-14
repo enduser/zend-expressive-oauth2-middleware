@@ -1,5 +1,6 @@
 {
     "name": "joselfonseca/zend-expressive-oauth2-middleware",
+    "description": "This is a project to work an OAuth 2 server micro service using Zend Expressive, currently is just a proof of concept and is not meant to be use in any production project",
     "type": "project",
     "homepage": "https://github.com/joselfonseca/zend-expressive-oauth2-middleware",
     "license": "MIT",
@@ -25,7 +26,7 @@
         "xtreamwayz/pimple-container-interop": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8",
+        "phpunit/phpunit": "^5.3",
         "squizlabs/php_codesniffer": "^2.3",
         "filp/whoops": "^1.1 || ^2.0",
         "laravel/homestead": "^3.0"
