@@ -13,8 +13,8 @@ return [
 
     'routes' => [
         [
-            'name' => 'api.ping',
-            'path' => '/api/ping',
+            'name' => 'ping',
+            'path' => '/ping',
             'middleware' => App\Action\PingAction::class,
             'allowed_methods' => ['GET'],
         ],

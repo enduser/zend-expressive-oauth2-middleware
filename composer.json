@@ -23,7 +23,8 @@
         "zendframework/zend-expressive-helpers": "^2.0",
         "zendframework/zend-stdlib": "~2.7",
         "zendframework/zend-expressive-fastroute": "^1.0",
-        "xtreamwayz/pimple-container-interop": "^1.0"
+        "xtreamwayz/pimple-container-interop": "^1.0",
+        "league/oauth2-server": "5.0.0-RC2"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.3",
