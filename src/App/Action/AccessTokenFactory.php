@@ -18,7 +18,7 @@ class AccessTokenFactory
      */
     public function __invoke(ContainerInterface $container)
     {
-        return new AccessToken($container->get('commandBus'));
+        return new AccessToken($container->get('commandBus'), $container->get('OAuthServer'));
     }
 
 }

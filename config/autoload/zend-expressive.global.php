@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'debug' => true,
 
     'config_cache_enabled' => false,
@@ -11,4 +12,9 @@ return [
             'template_error' => 'error::error',
         ],
     ],
+
+    'oAuth-keys' => [
+        'private' => 'file://'.__DIR__.'/../../private.key',
+        'public' => 'file://'.__DIR__.'/../../public.key'
+    ]
 ];

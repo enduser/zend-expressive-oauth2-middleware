@@ -22,9 +22,11 @@ class AccessToken
 
     /**
      * AccessToken constructor.
+     *
      * @param CommandBus $bus
+     * @param $server
      */
-    public function __construct(CommandBus $bus)
+    public function __construct(CommandBus $bus, $server)
     {
         $this->commandBus = $bus;
     }

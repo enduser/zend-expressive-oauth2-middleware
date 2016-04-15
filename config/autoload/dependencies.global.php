@@ -14,12 +14,15 @@ return [
         'invokables' => [
             // Fully\Qualified\InterfaceName::class => Fully\Qualified\ClassName::class,
             Helper\ServerUrlHelper::class => Helper\ServerUrlHelper::class,
-            League\OAuth2\Server\Repositories\ClientRepositoryInterface::class => App\OAuth\Repositories\SingleClientRepository::class
+            League\OAuth2\Server\Repositories\ClientRepositoryInterface::class => App\OAuth\Repositories\SingleClientRepository::class,
+            League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface::class => App\OAuth\Repositories\MemoryAccessToken::class,
+            League\OAuth2\Server\Repositories\ScopeRepositoryInterface::class => App\OAuth\Repositories\MemoryScopeRepository::class
         ],
         // Use 'factories' for services provided by callbacks/factory classes.
         'factories' => [
             Application::class => ApplicationFactory::class,
             Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
+            'OAuthServer' => App\OAuth\OAuthServerFactory::class
         ],
     ],
 ];

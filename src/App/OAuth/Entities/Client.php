@@ -1,4 +1,14 @@
 <?php
+/**
+ * Client Entity for oAuth 2 server
+ *
+ * @author      Jose Fonseca <jose@ditecnologia.com>
+ * @copyright   Copyright (c) Jose Fonseca
+ * @license     http://mit-license.org/
+ *
+ * @link        https://josefonseca.me
+ */
+
 
 namespace App\OAuth\Entities;
 
@@ -17,7 +27,7 @@ class Client implements ClientEntityInterface
 
     /**
      * @param null|string $name The Client Name
-     * 
+     *
      * @return \App\OAuth\Entities\Client
      */
     public function setName($name = null)
