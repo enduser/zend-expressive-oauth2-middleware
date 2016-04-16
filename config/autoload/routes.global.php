@@ -9,11 +9,12 @@ return [
             App\Action\PingAction::class => App\Action\PingAction::class
         ],
         'factories' => [
-            'commandBus' => App\Bus\CommandBusFactory::class,
             App\Action\AccessToken::class => App\Action\AccessTokenFactory::class
         ],
         'commandHandlers' => [
-            
+            App\OAuth\RespondToAccessTokenRequest::class => [
+                'handler' => App\OAuth\RespondToAccessTokenRequestHandler::class
+            ]
         ]
     ],
 

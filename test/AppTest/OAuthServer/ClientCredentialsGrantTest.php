@@ -30,8 +30,10 @@ class ClientCredentialsGrantTest extends \PHPUnit_Framework_TestCase
 
         $repository = new SingleClientRepository();
 
-        $this->assertInstanceOf(ClientEntityInterface::class, $repository->getClientEntity('some-client', 'client_credentials', 'some-secret'));
+        $repository->getClientEntity('some-client', 'client_credentials', 'some-secret');
 
     }
+
+    
 
 }

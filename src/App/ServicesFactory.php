@@ -1,6 +1,6 @@
 <?php
 /**
- * Access Token action factory
+ * Services Factory
  *
  * @author      Jose Fonseca <jose@ditecnologia.com>
  * @copyright   Copyright (c) Jose Fonseca
@@ -9,24 +9,25 @@
  * @link        https://josefonseca.me
  */
 
-namespace App\Action;
+namespace App;
 
 use Interop\Container\ContainerInterface;
+use Joselfonseca\FonckToolbox\ServicesFactory as Services;
 
 /**
- * Class AccessTokenFactory
- * @package App\Action
+ * Class ServicesFactory
+ * @package App
  */
-class AccessTokenFactory
+class ServicesFactory
 {
 
     /**
      * @param ContainerInterface $container
-     * @return AccessToken
+     * @return \Joselfonseca\FonckToolbox\ServicesFactory
      */
     public function __invoke(ContainerInterface $container)
     {
-        return new AccessToken($container);
+        return new Services();
     }
 
 }

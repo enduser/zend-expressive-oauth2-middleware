@@ -22,7 +22,8 @@ return [
         'factories' => [
             Application::class => ApplicationFactory::class,
             Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
-            'OAuthServer' => App\OAuth\OAuthServerFactory::class
+            'oAuthServer' => App\OAuth\OAuthServerFactory::class,
+            'services' => App\ServicesFactory::class
         ],
     ],
 ];

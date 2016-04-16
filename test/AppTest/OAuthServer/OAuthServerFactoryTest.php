@@ -1,4 +1,13 @@
 <?php
+/**
+ * oAuth 2 server factory
+ *
+ * @author      Jose Fonseca <jose@ditecnologia.com>
+ * @copyright   Copyright (c) Jose Fonseca
+ * @license     http://mit-license.org/
+ *
+ * @link        https://josefonseca.me
+ */
 
 namespace AppTest\OAuthServer;
 
