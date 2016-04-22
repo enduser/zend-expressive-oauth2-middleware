@@ -11,8 +11,8 @@
 
 namespace AppTest\OAuthServer;
 
-use League\OAuth2\Server\Server;
 use App\OAuth\OAuthServerFactory;
+use League\OAuth2\Server\AuthorizationServer;
 
 class OAuthServerFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,7 +24,7 @@ class OAuthServerFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $container = require __DIR__.'/../../../config/container.php';
         $serverFactory = new OAuthServerFactory();
-        $this->assertInstanceOf(Server::class, $serverFactory($container));
+        $this->assertInstanceOf(AuthorizationServer::class, $serverFactory($container));
     }
 
 }

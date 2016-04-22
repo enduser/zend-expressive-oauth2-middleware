@@ -43,11 +43,13 @@ class SingleClientRepository implements ClientRepositoryInterface
      * @param string      $clientIdentifier The client's identifier
      * @param string      $grantType        The grant type used
      * @param null|string $clientSecret     The client's secret (if sent)
+     * @param bool        $mustValidateSecret If true the client must attempt to validate the secret unless the client
+     *                                        is confidential
      *
      * @return \League\OAuth2\Server\Entities\ClientEntityInterface
      * @throws OAuthServerException
      */
-    public function getClientEntity($clientIdentifier, $grantType, $clientSecret = null)
+    public function getClientEntity($clientIdentifier, $grantType, $clientSecret = null, $mustValidateSecret = true)
     {
         if($clientIdentifier === $this->clientId && $clientSecret === $this->clientSecret){
 

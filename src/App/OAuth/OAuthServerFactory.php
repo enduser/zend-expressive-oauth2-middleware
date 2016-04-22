@@ -11,8 +11,10 @@
 
 namespace App\OAuth;
 
-use League\OAuth2\Server\Server;
+use DateInterval;
+use League\OAuth2\Server\AuthorizationServer;
 use Interop\Container\ContainerInterface;
+use League\OAuth2\Server\Grant\ClientCredentialsGrant;
 use League\OAuth2\Server\Repositories\ScopeRepositoryInterface;
 use League\OAuth2\Server\Repositories\ClientRepositoryInterface;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
@@ -36,15 +38,20 @@ class OAuthServerFactory
 
         $config = $container->get('config');
 
-        $privateKey = $config['oAuth-keys']['private'];
-        $publicKey = $config['oAuth-keys']['public'];
+        $privateKey = $config['oAuth']['keys']['private'];
+        $publicKey = $config['oAuth']['keys']['public'];
 
-        $server = new Server(
+        $server = new AuthorizationServer(
             $clientRepository,
             $accessTokenRepository,
             $scopeRepository,
             $privateKey,
             $publicKey
+        );
+
+        $server->enableGrantType(
+            new ClientCredentialsGrant,
+            new DateInterval($config['oAuth']['access_token_expiration'])
         );
 
         return $server;

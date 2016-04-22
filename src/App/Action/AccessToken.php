@@ -11,10 +11,12 @@
 
 namespace App\Action;
 
-use Interop\Container\ContainerInterface;
+use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Zend\Diactoros\Response\JsonResponse;
+use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use League\OAuth2\Server\Exception\OAuthServerException;
 
 
 /**
@@ -36,6 +38,7 @@ class AccessToken
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+        $this->server = $container->get('oAuthServer');
     }
 
     /**
@@ -46,7 +49,18 @@ class AccessToken
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
+        try {
 
-        return new JsonResponse(['ack' => 'you will get a Token']);
+            return $this->server->respondToAccessTokenRequest($request, $response);
+
+        } catch (OAuthServerException $exception) {
+
+            return $exception->generateHttpResponse($response);
+
+        } catch (Exception $exception) {
+
+            var_dump($exception->getMessage());
+
+        }
     }
 }

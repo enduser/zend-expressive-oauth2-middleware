@@ -8,6 +8,8 @@ php:
 before_script:
   - composer self-update
   - composer install
+  - openssl genrsa -out private.key 1024
+  - openssl rsa -in private.key -pubout -out public.key
 script:
   - phpunit --coverage-clover=coverage.clover
 after_script:

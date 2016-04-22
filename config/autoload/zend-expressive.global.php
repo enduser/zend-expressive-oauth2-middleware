@@ -13,8 +13,17 @@ return [
         ],
     ],
 
-    'oAuth-keys' => [
-        'private' => 'file://'.__DIR__.'/../../private.key',
-        'public' => 'file://'.__DIR__.'/../../public.key'
+    'oAuth' => [
+        /**
+         * The private and public keys to generate the JWT
+         */
+        'keys' => [
+            'private' => 'file://'.__DIR__.'/../../private.key',
+            'public' => 'file://'.__DIR__.'/../../public.key'
+        ],
+        /**
+         * Expiration of the token
+         */
+        'access_token_expiration' => 'PT1H',
     ]
 ];

@@ -29,6 +29,6 @@ class MemoryScopeRepository implements ScopeRepositoryInterface
         ClientEntityInterface $clientEntity,
         $userIdentifier = null
     ) {
-        // TODO: Implement finalizeScopes() method.
+        return $scopes;
     }
 }
