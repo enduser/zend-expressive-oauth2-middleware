@@ -2,6 +2,9 @@
 
 namespace AppTest\OAuthServer;
 
+use Zend\Diactoros\Response;
+use Zend\Diactoros\ServerRequest;
+use App\Action\AccessTokenFactory;
 use App\OAuth\Repositories\SingleClientRepository;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 
@@ -32,6 +35,30 @@ class ClientCredentialsGrantTest extends \PHPUnit_Framework_TestCase
 
         $repository->getClientEntity('some-client', 'client_credentials', 'some-secret');
 
+    }
+
+    
+    public function it_issues_a_token()
+    {
+        $container = require __DIR__.'/../../../config/container.php';
+
+        $factory = new AccessTokenFactory();
+
+        $action = $factory($container);
+
+        $request = new ServerRequest(['/'], [], null, 'POST', json_encode([
+            'grant_type' => 'client_credentials',
+            'client_id' => 'apps',
+            'client_secret' => '2we$yu76tn%jky&76kj21f9$iop0'
+        ]), [
+            'Content-Type' => 'application/json'
+        ]);
+
+        $response = $action($request, new Response(), function () {
+
+        });
+
+        var_dump($response->getBody()->getContents()); die;
     }
 
     

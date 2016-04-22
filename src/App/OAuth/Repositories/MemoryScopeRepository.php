@@ -11,18 +11,35 @@
 
 namespace App\OAuth\Repositories;
 
-use League\OAuth2\Server\Entities\ScopeEntityInterface;
+use App\OAuth\Entities\Scope;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Repositories\ScopeRepositoryInterface;
 
 class MemoryScopeRepository implements ScopeRepositoryInterface
 {
-
+    /**
+     * {@inheritdoc}
+     */
     public function getScopeEntityByIdentifier($identifier)
     {
-        // TODO: Implement getScopeEntityByIdentifier() method.
+        $scopes = [
+            'basic' => [
+                'description' => 'Basic details about you',
+            ],
+            'email' => [
+                'description' => 'Your email address',
+            ],
+        ];
+        if (array_key_exists($identifier, $scopes) === false) {
+            return;
+        }
+        $scope = new Scope();
+        $scope->setIdentifier($identifier);
+        return $scope;
     }
-
+    /**
+     * {@inheritdoc}
+     */
     public function finalizeScopes(
         array $scopes,
         $grantType,

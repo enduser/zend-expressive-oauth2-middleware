@@ -57,6 +57,10 @@ class SingleClientRepository implements ClientRepositoryInterface
 
             $client->setIdentifier($clientIdentifier);
 
+            $client->setName('Single Client');
+
+            $client->setRedirectUri('http://foo.bar');
+
             return $client;
 
         }
