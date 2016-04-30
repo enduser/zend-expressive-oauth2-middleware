@@ -37,4 +37,16 @@ class Client implements ClientEntityInterface
         return $this;
     }
 
+    /**
+     * Returns the registered redirect URI (as a string).
+     *
+     * Alternatively return an indexed array of redirect URIs.
+     *
+     * @return string|string[]
+     */
+    public function setRedirectUri($uri)
+    {
+        $this->redirectUri = $uri;
+    }
+
 }
